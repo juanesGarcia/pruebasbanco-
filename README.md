@@ -20,5 +20,10 @@ Cuando se determina el ganador, se le envía un correo electrónico de notificac
 Consideraciones de API simulada:
 
 Se asume que la información del estudiante (nombre y carrera) se proporciona como si proviniera de una API externa.
-El proceso de asignación de calificaciones y determinación del ganador se simula con datos de estado local.
+El proceso de asignación de calificaciones y determinación del ganador se simula con datos de estado local de la siguiente manera 
+ const [estudiantes, setEstudiantes] = useState([
+    { nombre: "Juan Pérez", carrera: "Ingeniería Informática", calificacionPsicotecnica: null, calificacionLogica: null} faltaron por calificaciones por que tenia una falla y no me dio tiempo de correcion.
+
+
+
 En resumen, este formulario ofrece una interfaz para la gestión de calificaciones de estudiantes en un proceso de selección y proporciona una funcionalidad automatizada para determinar y notificar al ganador del proceso de selección de una carrera específica.
