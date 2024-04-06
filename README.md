@@ -7,6 +7,7 @@ Los usuarios pueden buscar estudiantes por nombre y carrera.
 Si se encuentra un estudiante, se muestran sus detalles, incluida su carrera y estado de selección (activo o inactivo).
 Los usuarios pueden asignar calificaciones a los estudiantes en áreas específicas como psicotécnica y lógica.
 Si un estudiante no alcanza al menos una calificación de 6 en alguna de las áreas, se marca como inactivo y se notifica por correo electrónico que no continúa en el proceso.
+ten en cuenta que cada vez que vas a calificar una prueba o para ver si ya la calificaste si esta activo o inactivo tienes que volver a buscar al estudiante.
 Cálculo del promedio:
 
 Después de asignar todas las calificaciones, se calcula el promedio para cada estudiante.
