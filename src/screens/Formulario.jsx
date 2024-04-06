@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css'
 
 function Formulario() {
   const [formData, setFormData] = useState({
@@ -11,9 +12,9 @@ function Formulario() {
   });
 
   const [estudiantes, setEstudiantes] = useState([
-    { nombre: "Juan Pérez", carrera: "Ingeniería Informática", estadoSeleccion: "En proceso", calificacionPsicotecnica: null, calificacionLogica: null, calificacionEntrevistaPersonal: null, calificacionEntrevistaJefe: null, calificacionesEnviadas: [], promedio: null },
-    { nombre: "María Gutiérrez", carrera: "Ingeniería Informática", estadoSeleccion: "En proceso", calificacionPsicotecnica: null, calificacionLogica: null, calificacionEntrevistaPersonal: null, calificacionEntrevistaJefe: null, calificacionesEnviadas: [], promedio: null },
-    { nombre: "Carlos Martínez", carrera: "Ingeniería Informática", estadoSeleccion: "En proceso", calificacionPsicotecnica: null, calificacionLogica: null, calificacionEntrevistaPersonal: null, calificacionEntrevistaJefe: null, calificacionesEnviadas: [], promedio: null },
+    { nombre: "Juan Pérez", carrera: "Ingeniería Informática", estadoSeleccion: "En proceso", calificacionPsicotecnica: null, calificacionLogica: null, calificacionEntrevistaPersonal: null, calificacionEntrevistaJefe: null, calificacionesEnviadas: [] },
+    { nombre: "María Gutiérrez", carrera: "Ingeniería Informática", estadoSeleccion: "En proceso", calificacionPsicotecnica: null, calificacionLogica: null, calificacionEntrevistaPersonal: null, calificacionEntrevistaJefe: null, calificacionesEnviadas: [] },
+    { nombre: "Carlos Martínez", carrera: "Ingeniería Informática", estadoSeleccion: "En proceso", calificacionPsicotecnica: null, calificacionLogica: null, calificacionEntrevistaPersonal: null, calificacionEntrevistaJefe: null, calificacionesEnviadas: [] },
     // Resto de estudiantes aquí...
   ]);
 
@@ -53,31 +54,32 @@ function Formulario() {
       ) {
         const nuevasCalificaciones = [...estudiante.calificacionesEnviadas, tipoPrueba.toLowerCase()];
         const promedio = calcularPromedio(calificacion, nuevasCalificaciones.length, estudiante);
+        const estadoSeleccion = calificacion >= 6 ? 'En proceso' : 'Inactivo'; // Se cambia a 'Inactivo' si la calificación es menor a 6
         return {
           ...estudiante,
           [`calificacion${tipoPrueba.charAt(0).toUpperCase() + tipoPrueba.slice(1)}`]: calificacion,
           calificacionesEnviadas: nuevasCalificaciones,
-          promedio: promedio
+          promedio: promedio,
+          estadoSeleccion: estadoSeleccion // Se actualiza el estado de selección
         };
       }
       return estudiante;
     });
-    // Actualizar el objeto de estudiantes con las calificaciones guardadas
+
     setEstudiantes(estudiantesActualizados);
-    // Limpiar el formulario de calificaciones
     setFormData({
       ...formData,
       [tipoPrueba]: ''
     });
-    // Limpiar el estado del estudiante encontrado y establecer el estado de búsqueda en false
     setEstudianteEncontrado(null);
     setNoEncontrado(false);
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='form'>
         <div>
+            <h1 className='par'>buscar por estudiante y carrera</h1>
           <label htmlFor="nombre">Nombre:</label>
           <input
             type="text"
@@ -97,7 +99,7 @@ function Formulario() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Buscar</button>
+        <button type="submit" className='buscar'>Buscar</button>
         {noEncontrado && <p>No se encontró ningún estudiante.</p>}
         {estudianteEncontrado && (
           <div>
@@ -109,11 +111,11 @@ function Formulario() {
             </p>
           </div>
         )}
-        {/* Mostrar mensaje de estado "Inactivo" si el estudiante no está en proceso de selección */}
+    
         {estudianteEncontrado && estudianteEncontrado.estadoSeleccion === 'Inactivo' && (
           <p>Este estudiante ya no está en proceso de selección.</p>
         )}
-        {/* Botones para cada tipo de prueba */}
+
         {estudianteEncontrado && estudianteEncontrado.estadoSeleccion !== 'Inactivo' && (
           <div>
             {estudianteEncontrado.calificacionesEnviadas.includes('psicotecnica') ? (
@@ -157,9 +159,10 @@ function Formulario() {
       </form>
       {estudiantes.filter(estudiante =>
         estudiante.carrera.toLowerCase() === formData.carrera.toLowerCase() &&
-        estudiante.calificacionesEnviadas.length > 0
+        estudiante.calificacionesEnviadas.length > 0 &&
+        estudiante.estadoSeleccion !== 'Inactivo' // Solo estudiantes en proceso pueden ser ganadores
       ).map(estudiante => (
-        <div key={estudiante.nombre}>
+        <div key={estudiante.nombre} className='estudiante'>
           <h2>{estudiante.nombre}</h2>
           <p>Carrera: {estudiante.carrera}</p>
           <p>Estado de selección: {estudiante.estadoSeleccion}</p>
@@ -169,11 +172,10 @@ function Formulario() {
               {calificacion.charAt(0).toUpperCase() + calificacion.slice(1)}: {estudiante[`calificacion${calificacion.charAt(0).toUpperCase() + calificacion.slice(1)}`]}
             </p>
           ))}
-          {/* Mostrar promedio */}
+    
           <p>Promedio: {estudiante.promedio}</p>
         </div>
       ))}
-      {/* Mostrar al estudiante con el mejor promedio que haya hecho ambas calificaciones */}
       {mostrarGanador(formData.carrera, estudiantes)}
     </div>
   );
@@ -191,7 +193,8 @@ function mostrarGanador(carrera, estudiantes) {
     estudiante.carrera.toLowerCase() === carrera.toLowerCase() &&
     estudiante.calificacionesEnviadas.includes('psicotecnica') &&
     estudiante.calificacionesEnviadas.includes('logica') &&
-    estudiante.calificacionesEnviadas.length > 0
+    estudiante.calificacionesEnviadas.length > 0 &&
+    estudiante.estadoSeleccion !== 'Inactivo' // Solo estudiantes en proceso pueden ser ganadores
   );
 
   if (estudiantesCarrera.length === 0) {
@@ -210,7 +213,7 @@ function mostrarGanador(carrera, estudiantes) {
   });
 
   return ganador ? (
-    <div>
+    <div className='ganador'>
       <h2>Ganador</h2>
       <p>{ganador.nombre} - Promedio: {mejorPromedio}</p>
     </div>

@@ -1,0 +1,38 @@
+.form{
+    margin-left: 30%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.par{
+    margin-left: 10%;
+}
+
+#nombre{
+    margin-left: 5%;
+    width: 50%;
+    margin-bottom: 5%;
+}
+
+#carrera{
+    margin-left: 5%;
+    width: 50%;
+    margin-bottom: 5%;
+}
+.buscar{
+    width: 20%;
+    margin-left: 28%;
+}
+
+.estudiante{
+    border-top:black solid 1px;
+    padding-left: 40%;
+    margin-bottom: 5%;
+}
+
+.ganador{
+    border-top:black solid 1px;
+    width: 100%;
+    padding-left: 40%;
+    margin-bottom: 5%;
+}
