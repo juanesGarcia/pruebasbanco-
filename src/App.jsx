@@ -1,8 +1,9 @@
 import React from 'react'
 import Formulario from './screens/Formulario'
+import './screens/Main.css'
 const App = () => {
   return (
-    <div>
+    <div className='container' >
       <Formulario></Formulario>
     </div>
   )

@@ -1,17 +1,37 @@
+
 .form{
-    margin-left: 30%;
-    margin-top: 5%;
     margin-bottom: 5%;
+}
+.search-cont{
+    display: flex;
+    justify-content: center;
+
 }
 
 .par{
-    margin-left: 10%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+    padding-top: 5%;
 }
-
 #nombre{
     margin-left: 5%;
     width: 50%;
     margin-bottom: 5%;
+}
+.car-cont{
+    display: flex;
+    justify-content: center;
+}
+.nombre-cont{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    display: block;
+    justify-content: center;
+    background: -webkit-linear-gradient(90deg, #9ddf64,#bdda41);/* Chrome 10-25, Safari 5.1-6 */     
+    background: linear-gradient(90deg, #9ddf64,#bdda41);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */                                             
 }
 
 #carrera{
@@ -21,7 +41,7 @@
 }
 .buscar{
     width: 20%;
-    margin-left: 28%;
+
 }
 
 .estudiante{
@@ -35,4 +55,5 @@
     width: 100%;
     padding-left: 40%;
     margin-bottom: 5%;
+    padding-bottom: 5%;
 }

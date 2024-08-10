@@ -76,10 +76,11 @@ function Formulario() {
   };
 
   return (
-    <div>
+    <div className='container'>
       <form onSubmit={handleSubmit} className='form'>
-        <div>
-            <h1 className='par'>buscar por estudiante y carrera</h1>
+        <h1 className='par'>buscar por estudiante y carrera</h1>
+        <div className='nombre-cont'>
+           
           <label htmlFor="nombre">Nombre:</label>
           <input
             type="text"
@@ -89,7 +90,7 @@ function Formulario() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className='car-cont'>
           <label htmlFor="carrera">Carrera:</label>
           <input
             type="text"
@@ -99,7 +100,10 @@ function Formulario() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className='buscar'>Buscar</button>
+        <div className='search-cont'>
+           <button type="submit" className='buscar'>Buscar</button>
+        </div>
+       
         {noEncontrado && <p>No se encontró ningún estudiante.</p>}
         {estudianteEncontrado && (
           <div>
@@ -217,6 +221,7 @@ function mostrarGanador(carrera, estudiantes) {
       <h2>Ganador</h2>
       <p>{ganador.nombre} - Promedio: {mejorPromedio}</p>
     </div>
+    
   ) : null;
 }
 
