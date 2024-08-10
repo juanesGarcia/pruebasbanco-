@@ -1,4 +1,5 @@
 .container{
     display: block;
     max-height: 250vh;
+    min-height: 93vh;
 }
