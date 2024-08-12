@@ -101,11 +101,10 @@ function Formulario() {
           />
         </div>
         <div class="button-borders">
-  <button class="primary-button"> Buscar
-  </button>
+        <button>Buscar</button>
 </div>
        
-        {noEncontrado && <p>No se encontró ningún estudiante.</p>}
+        {noEncontrado && <p className='no-result'>No se encontró ningún estudiante.</p>}
         {estudianteEncontrado && (
           <div>
             <h2>Estudiante encontrado:</h2>
