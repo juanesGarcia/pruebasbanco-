@@ -12,9 +12,9 @@ function Formulario() {
   });
 
   const [estudiantes, setEstudiantes] = useState([
-    { nombre: "Juan Pérez", carrera: "Ingeniería Informática", estadoSeleccion: "En proceso", calificacionPsicotecnica: null, calificacionLogica: null, calificacionEntrevistaPersonal: null, calificacionEntrevistaJefe: null, calificacionesEnviadas: [] },
-    { nombre: "María Gutiérrez", carrera: "Ingeniería Informática", estadoSeleccion: "En proceso", calificacionPsicotecnica: null, calificacionLogica: null, calificacionEntrevistaPersonal: null, calificacionEntrevistaJefe: null, calificacionesEnviadas: [] },
-    { nombre: "Carlos Martínez", carrera: "Ingeniería Informática", estadoSeleccion: "En proceso", calificacionPsicotecnica: null, calificacionLogica: null, calificacionEntrevistaPersonal: null, calificacionEntrevistaJefe: null, calificacionesEnviadas: [] },
+    { nombre: "Juan Perez", carrera: "Ingenieria Informatica", estadoSeleccion: "En proceso", calificacionPsicotecnica: null, calificacionLogica: null, calificacionEntrevistaPersonal: null, calificacionEntrevistaJefe: null, calificacionesEnviadas: [] },
+    { nombre: "Maria Gutierrez", carrera: "Ingenieria Informatica", estadoSeleccion: "En proceso", calificacionPsicotecnica: null, calificacionLogica: null, calificacionEntrevistaPersonal: null, calificacionEntrevistaJefe: null, calificacionesEnviadas: [] },
+    { nombre: "Carlos Martinez", carrera: "Ingenieria Informatica", estadoSeleccion: "En proceso", calificacionPsicotecnica: null, calificacionLogica: null, calificacionEntrevistaPersonal: null, calificacionEntrevistaJefe: null, calificacionesEnviadas: [] },
     // Resto de estudiantes aquí...
   ]);
 
@@ -100,9 +100,10 @@ function Formulario() {
             onChange={handleChange}
           />
         </div>
-        <div className='search-cont'>
-           <button type="submit" className='buscar'>Buscar</button>
-        </div>
+        <div class="button-borders">
+  <button class="primary-button"> Buscar
+  </button>
+</div>
        
         {noEncontrado && <p>No se encontró ningún estudiante.</p>}
         {estudianteEncontrado && (
