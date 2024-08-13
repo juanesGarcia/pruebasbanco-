@@ -114,3 +114,44 @@ button {
     margin-top: 10%;
     padding-bottom: 20%;
   }
+
+  .info{
+    display: flex;
+    justify-content: center;
+  }
+
+  .calificacion{
+    margin-left: 5%;
+  }
+  #calificacionPsicotecnica{
+    margin-left: 5%;
+  }
+  #calificacionLogica{
+    margin-left: 5%;
+  }
+  @media (max-width: 800px){  
+    .button-borders{
+
+    margin-left: 100px;
+}
+
+.par{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
+  padding-top: 5%;
+  font-size: 25px;
+}
+.calificacion{
+  margin-top: 20%;
+  margin-left: 2%;
+}
+.estudiante{
+  padding-left: 30%;
+}
+.ganador{
+  padding-left: 30%;
+}
+    
+}
+

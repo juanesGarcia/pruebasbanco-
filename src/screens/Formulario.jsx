@@ -103,10 +103,10 @@ function Formulario() {
         <div class="button-borders">
         <button>Buscar</button>
 </div>
-       
-        {noEncontrado && <p className='no-result'>No se encontró ningún estudiante.</p>}
+       <div className='info'>
+       {noEncontrado && <p className='no-result'>No se encontró ningún estudiante.</p>}
         {estudianteEncontrado && (
-          <div>
+          <div clas>
             <h2>Estudiante encontrado:</h2>
             <p>
               <strong>Nombre:</strong> {estudianteEncontrado.nombre}<br />
@@ -121,7 +121,7 @@ function Formulario() {
         )}
 
         {estudianteEncontrado && estudianteEncontrado.estadoSeleccion !== 'Inactivo' && (
-          <div>
+          <div className='calificacion'>
             {estudianteEncontrado.calificacionesEnviadas.includes('psicotecnica') ? (
               <p>Calificación Psicotécnica: {estudianteEncontrado.calificacionPsicotecnica}</p>
             ) : (
@@ -160,6 +160,9 @@ function Formulario() {
 
           </div>
         )}
+
+       </div>
+       
       </form>
       {estudiantes.filter(estudiante =>
         estudiante.carrera.toLowerCase() === formData.carrera.toLowerCase() &&
